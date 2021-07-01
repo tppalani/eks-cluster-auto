@@ -29,7 +29,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - node-group
+                - node-group # this value i have taken from my aws console  - ec2 - autoscaling group - details - tags (key==> eks:nodegroup-name value ===> node-group)
             topologyKey: kubernetes.io/hostname
             namespaces:
             - default
