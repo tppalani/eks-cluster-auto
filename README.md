@@ -1,5 +1,6 @@
 # eks-cluster-auto
 
+```
 Events:
   Type     Reason            Age                    From                Message
   ----     ------            ----                   ----                -------
@@ -8,3 +9,4 @@ Events:
   Warning  FailedScheduling  103s (x5 over 3m54s)   default-scheduler   0/3 nodes are available: 1 Insufficient cpu, 1 node(s) didn't match Pod's node affinity, 1 node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate.
   Warning  FailedScheduling  92s                    default-scheduler   0/3 nodes are available: 1 Insufficient cpu, 2 node(s) didn't match Pod's node affinity.
   Warning  FailedScheduling  35s (x2 over 46s)      default-scheduler   0/4 nodes are available: 1 Insufficient cpu, 1 node(s) had taint {node.kubernetes.io/not-ready: }, that the pod didn't tolerate, 2 node(s) didn't match Pod's node affinity.
+```
