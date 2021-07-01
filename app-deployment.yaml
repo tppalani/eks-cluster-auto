@@ -21,7 +21,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - backend
+                - node-group # this value i have taken from my aws console  - ec2 - autoscaling group - details - tags (key==> eks:nodegroup-name value ===> node-group)
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
@@ -29,7 +29,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - node-group # this value i have taken from my aws console  - ec2 - autoscaling group - details - tags (key==> eks:nodegroup-name value ===> node-group)
+                - maanged 
             topologyKey: kubernetes.io/hostname
             namespaces:
             - default
