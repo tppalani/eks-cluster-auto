@@ -1,1 +1,46 @@
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mms
+  template:
+    metadata:
+      labels:
+        app: mms
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - backend
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - node-group
+            topologyKey: kubernetes.io/hostname
+            namespaces:
+            - default
+      containers:
+      - name: mms
+        image: nodejs:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+            - containerPort: 3030
+        resources:
+            limits:
+              cpu: 900m
+            requests:
+              cpu: 250m
